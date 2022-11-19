@@ -1,0 +1,247 @@
+<html>
+
+<head>
+  <title></title>
+  <script type="text/javascript" src="sudoku.js"></script>
+  <script type="text/javascript" src="analytics.js"></script>
+
+
+  <!-- Bootstrap CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+
+  <div id="container">
+
+
+    <h1 class="padd">Sudoku Solver</h1>
+
+    <div class="wrapper-flex">
+      <div class="left">
+        <h2>Rules of Sudoku</h2>
+        <hr>
+        <div class="left-content">
+          <marquee direction="up" scrolldelay="200">
+            <b>1.)</b> Each row contains unique values ranging from 1 to 9. <br><br>
+            <b>2.)</b> Each column contains unique values ranging from 1 to 9. <br><br>
+            <b>3.)</b> Each of the 9 sub-squares, of size 3×3, contains unique values from 1 to 9. <br><br>
+
+          </marquee>
+          <h2>Instructions</h2>
+          <hr>
+          <marquee direction="up" scrolldelay="200">
+            Enter any number from 1-9 in any number of empty cells,<br><br>
+            then press <b>SOLVE</b>. <br><br>
+            If the board is valid, the given SUDOKU will be solved, <br><br>
+            else an INVALID BOARD message will be displayed. <br><br>
+          </marquee>
+        </div>
+      </div>
+      <div class="middle">
+        <table id="sudoku-board">
+
+
+          <colgroup>
+            <col>
+            <col>
+            <col>
+            <colgroup>
+              <col>
+              <col>
+              <col>
+              <colgroup>
+                <col>
+                <col>
+                <col>
+              <tbody>
+            <tr>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+              <td contenteditable="true"></td>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          <tr>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <tbody>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+            <tbody>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+              <tr>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+                <td contenteditable="true"></td>
+        </table>
+        <div>
+          <button id="solve-button" class="btn btn-success">Solve!</button>
+        </div>
+        <div>
+          <button id="clear-button" class="btn btn-danger">Clear board</button>
+        </div>
+      </div>
+      <div class="right">
+        <div class="right-content">
+          <h2>Backtracking Approach</h2>
+          <hr>
+          <marquee direction="up" scrolldelay="200">
+            We do not explore all the possible options instead we explore only worthy options and build the solution incrementally. <br><br>
+This algorithm visits all the empty cells in some order, filling the digits incrementally, and backtracks when a number is not found to be valid. <br><br>
+The program starts by filling '1' in the first cell if there are no violations,
+then advances to the second cell and places '1' in case violation occurs then increments and places '2’. <br><br>
+It checks incrementally in this way and when none of the '1' to '9' numbers fit in this cell then the algorithm leaves the cell blank and goes back to the previous cell. <br><br>
+
+          </marquee>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <footer style="text-align: center;">
+
+    <p> Made as Learning Project from GFG. Created by : <i>Md Imran Raj</i> </p>
+  </footer>
+</body>
+
+<script type="text/javascript">
+  document.getElementById("sudoku-board").addEventListener("keyup", function(event) {
+    if (event.target && event.target.nodeName == "TD") {
+      var validNum = /[1-9]/;
+      var tdEl = event.target;
+      if (tdEl.innerText.length > 0 && validNum.test(tdEl.innerText[0])) {
+        tdEl.innerText = tdEl.innerText[0];
+      } else {
+        tdEl.innerText = "";
+      }
+    }
+  });
+
+  document.getElementById("solve-button").addEventListener("click", function(event) {
+    var boardString = boardToString();
+    var solution = SudokuSolver.solve(boardString);
+    if (solution) {
+      stringToBoard(solution);
+    } else {
+      alert("Invalid board!");
+    }
+  })
+
+  document.getElementById("clear-button").addEventListener("click", clearBoard);
+
+  function clearBoard() {
+    var tds = document.getElementsByTagName("td");
+    for (var i = 0; i < tds.length; i++) {
+      tds[i].innerText = "";
+    }
+  }
+
+  function boardToString() {
+    var string = "";
+    var validNum = /[1-9]/;
+    var tds = document.getElementsByTagName("td");
+    for (var i = 0; i < tds.length; i++) {
+      if (validNum.test(tds[i].innerText[0])) {
+        string += tds[i].innerText;
+      } else {
+        string += "-";
+      }
+    }
+    return string;
+  }
+
+  function stringToBoard(string) {
+    var currentCell;
+    var validNum = /[1-9]/;
+    var cells = string.split("");
+    var tds = document.getElementsByTagName("td");
+    for (var i = 0; i < tds.length; i++) {
+      currentCell = cells.shift();
+      if (validNum.test(currentCell)) {
+        tds[i].innerText = currentCell;
+      }
+    }
+  }
+</script>
+
+</html>

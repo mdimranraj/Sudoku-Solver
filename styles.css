@@ -1,0 +1,72 @@
+body {
+  font-family: Calibri, sans-serif;
+  background-image: url("blue-back.jpg");
+
+  background-position: center;
+  background-size: cover;
+}
+
+#container {
+  text-align: center
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 2em;
+  margin: 0 auto;
+}
+
+colgroup,
+tbody {
+  border: solid medium;
+}
+
+td {
+  border: solid thin;
+  height: 1.4em;
+  width: 1.4em;
+  text-align: center;
+  padding: 0;
+}
+
+button {
+  width: 400px;
+  margin-top: 15px;
+  font-size: 1.7em;
+}
+
+.padd {
+  padding-bottom: 10px;
+}
+
+
+
+.left, .right{
+  width: 30%;
+  height: 70vh;
+  backdrop-filter: blur(60px);
+  padding: 10px;
+  /* overflow-y: hidden; */
+}
+.wrapper-flex{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+h2{
+  color: #3C2317;
+}
+h1{
+  color: #256D85;
+  
+}
+hr{
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+marquee{
+  height: 20vh;
+}
+
